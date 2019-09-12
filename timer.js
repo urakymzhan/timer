@@ -54,13 +54,15 @@ function timer(){
     }, 1000);
 } 
 
-
+// if you guys know better, simpler solution please edit it.
 
 // start
 start.addEventListener("click", timer);
 
 
-// pause
+// TODO: to be implemented
+
+// pause  
 // var obj = new timer()
 // pause.addEventListener('click', function() {
 //     clearInterval(obj.timerr());
