@@ -3,4 +3,4 @@
 Timer with pure JS from scratch
 
 
-![Alt main](main.png)
+[Check out live here](https://urakymzhan.github.io/timer/)
