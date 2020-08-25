@@ -6,9 +6,12 @@ const restart = document.getElementById('restart');
 const pause = document.getElementById('pause');
 const start = document.getElementById('start');
 
+var hr = 0;
+var sec = 0;
+var min = 0;
 
 function mintimer(min) {
-    var hr = 0;
+
     if (min < 9) {
         minuteSpan.innerHTML = "0:"+ min
     }
@@ -21,6 +24,7 @@ function mintimer(min) {
     else {
         minuteSpan.innerHTML = min;
     }
+    hr = hr;
 }
 
 function hrtimer(hr) {
@@ -32,11 +36,9 @@ function hrtimer(hr) {
     }
 }
 
-function timer(){
-    var sec = 0;
-    var min = 0;
-    var timerr = setInterval(function() {      
-       
+var timerr;
+function timer(e){
+    timerr = setInterval(function() {     
         if (sec < 9) {
             secondSpan.innerHTML='0:'+ sec;
         } 
@@ -50,26 +52,41 @@ function timer(){
             secondSpan.innerHTML=sec;
         }
         sec++;
+        console.log(sec);
+        console.log(min);
+        sec = sec;
+        min = min;
 
     }, 1000);
+
+    // disable button
+    start.disabled = true;
 } 
 
-// if you guys know better, simpler solution please edit it.
 
 // start
-start.addEventListener("click", timer);
+start.addEventListener("click", function(event) {
+    timer(event)
+});
 
-
-// TODO: to be implemented
 
 // pause  
-// var obj = new timer()
-// pause.addEventListener('click', function() {
-//     clearInterval(obj.timerr());
-// }) 
+pause.addEventListener('click', function() {
+    // enable start button
+    start.disabled = false;
+    clearInterval(timerr);
+}) 
 
 
 // restart 
-// restart.addEventListener("click", function(){ });
+restart.addEventListener("click", function(event) {
+    // enable start button - optional
+    // start.disabled = false;
+    clearInterval(timerr);
+    sec = 0;
+    min = 0;
+    hr = 0;
+    timer(event)
+});
 
 
