@@ -52,8 +52,6 @@ function timer(e){
             secondSpan.innerHTML=sec;
         }
         sec++;
-        console.log(sec);
-        console.log(min);
         sec = sec;
         min = min;
 
